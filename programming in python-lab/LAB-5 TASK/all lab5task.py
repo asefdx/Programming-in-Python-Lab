@@ -43,42 +43,9 @@ def find_unavailable(resources):
         print("All resources are available.")
 
 
-def find_resource_by_id(resources, resource_id):
-    for resource in resources:
-        if resource[0] == resource_id:
-            return resource
-    return None
 
+       
 
-def update_quantity(resources, resource_id, quantity):
-    resource = find_resource_by_id(resources, resource_id)
-
-    if resource is None:
-        print("Resource ID not found.")
-    elif quantity < 0:
-        print("Quantity cannot be negative.")
-    else:
-        resource[3] = quantity
-        print("Quantity updated.")
-
-
-print("All resources:")
-display_resources(resources)
-
-print("\nElectronics:")
-search_by_category(resources, "Electronics")
-
-print("\nUnavailable resources:")
-find_unavailable(resources)
-
-print("\nTesting unknown ID:")
-update_quantity(resources, 999, 4)
-
-print("\nTesting negative quantity:")
-update_quantity(resources, 101, -2)
-
-print("\nTesting empty list:")
-display_resources([])
 
 
 # Exercise 2: Student Marks Investigator
@@ -135,20 +102,5 @@ def display_report(students):
             print(student_id, name, round(average, 2), performance)
 
 
-print("\nStudent report:")
-display_report(students)
 
-print("\nTesting equal marks:")
-display_report([[206, "Karim", [75, 75, 75]]])
 
-print("\nTesting tied averages:")
-display_report([
-    [207, "StudentA", [70, 80, 90]],
-    [208, "StudentB", [80, 80, 80]]
-])
-
-print("\nTesting invalid mark:")
-display_report([[209, "Rafi", [80, 105, 70]]])
-
-print("\nTesting no marks:")
-display_report([[210, "Mitu", []]])
